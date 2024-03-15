@@ -9,7 +9,7 @@ const AddTodo = ({ fetchTodos }) => {
     const addTodo = async () => {
         if (title.trim() === '') return;
 
-        await axios.post('http://localhost:5000/api/todos', { title });
+        await axios.post('https://simple-todos-app-8.onrender.com/api/todos', { title });
         setTitle('');
         fetchTodos(); // Fetch updated todos
     };

@@ -28,7 +28,7 @@ const TodoList = () => {
      */
     const fetchTodos = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/todos');
+            const response = await axios.get('https://simple-todos-app-8.onrender.com/api/todos');
             setTodos(response.data);
             setSelectedTodo(null);
             setIsViewing(false);
@@ -48,7 +48,7 @@ const TodoList = () => {
      */
     const handleCheckboxChange = async (id, completed) => {
         try {
-            await axios.put(`http://localhost:5000/api/todos/${id}`, { completed: !completed });
+            await axios.put(`https://simple-todos-app-8.onrender.com/api/todos/${id}`, { completed: !completed });
             fetchTodos(); // Fetch updated todos
         } catch (error) {
             console.error('Error updating todo:', error);
@@ -66,7 +66,7 @@ const TodoList = () => {
     const handleViewClick = async (id) => {
         console.log('View Clicked');
         try {
-            const response = await axios.get(`http://localhost:5000/api/todos/${id}`);
+            const response = await axios.get(`https://simple-todos-app-8.onrender.com/api/todos/${id}`);
             setSelectedTodo(response.data);
             setIsViewing(true);
         } catch (error) {
@@ -96,7 +96,7 @@ const TodoList = () => {
                 console.error('Invalid todo ID');
                 return;
             }
-            await axios.delete(`http://localhost:5000/api/todos/${id}`);
+            await axios.delete(`https://simple-todos-app-8.onrender.com/api/todos/${id}`);
             setTodos((prevTodos) => prevTodos.filter((todo) => todo._id !== id));
         } catch (error) {
             console.error('Error deleting todo:', error);
